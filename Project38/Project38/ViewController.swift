@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
     
     private var commits = [Commit]()
     
+    private var commitPredicate: NSPredicate?
+    
     private func saveContext() {
         if container.viewContext.hasChanges {
             do {
@@ -25,7 +27,8 @@ class ViewController: UITableViewController {
     }
     
     @objc private func fetchCommits() {
-        if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!) {
+//        if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!) {
+            if let data = try? String(contentsOf: URL(string: "http://localhost:8080/git_api.json")!) {
             let jsonCommits = JSON(parseJSON: data)
             let jsonCommitArray = jsonCommits.arrayValue
             print("Received \(jsonCommitArray.count) new commits.")
@@ -49,9 +52,10 @@ class ViewController: UITableViewController {
         commit.date = formatter.date(from: json["commit"]["committer"]["date"].stringValue) ?? Date()
     }
     
-    func loadSavedData() {
+    private func loadSavedData() {
         let request: NSFetchRequest<Commit> = Commit.fetchRequest()
         let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.predicate = commitPredicate
         request.sortDescriptors = [sort]
         do {
             commits = try container.viewContext.fetch(request)
@@ -60,6 +64,34 @@ class ViewController: UITableViewController {
         } catch {
             print("Fetch failed")
         }
+    }
+    
+    @objc private func changeFilter() {
+        let ac = UIAlertController(title: "Filter commits...",
+                                   message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Show only fixes", style: .default) { [unowned self] _ in
+            self.commitPredicate = NSPredicate(format: "message CONTAINS[c] 'fix'")
+            self.loadSavedData()
+        })
+        
+        ac.addAction(UIAlertAction(title: "Ignore Pull Requests", style: .default) { [unowned self] _ in
+            self.commitPredicate = NSPredicate(format: "NOT message BEGINSWITH 'Merge pull request'")
+            self.loadSavedData()
+        })
+        
+        ac.addAction(UIAlertAction(title: "Show only recent", style: .default) { [unowned self] _ in
+            let twelveHoursAgo = Date().addingTimeInterval(-43200)
+            self.commitPredicate = NSPredicate(format: "date > %@", twelveHoursAgo as NSDate)
+            self.loadSavedData()
+        })
+        
+        ac.addAction(UIAlertAction(title: "Show all commits", style: .default) { [unowned self] _ in
+            self.commitPredicate = nil
+            self.loadSavedData()
+        })
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
     override func viewDidLoad() {
@@ -76,11 +108,13 @@ class ViewController: UITableViewController {
         }
         
 //        let commit = Commit()
-        let commit = Commit.init(entity: NSEntityDescription.entity(forEntityName: "Commit", in: container.viewContext)!, insertInto: container.viewContext)
-        commit.message = "Woo"
-        commit.url = "http://www.example.com"
+//        let commit = Commit.init(entity: NSEntityDescription.entity(forEntityName: "Commit", in: container.viewContext)!, insertInto: container.viewContext)
+//        commit.message = "Woo"
+//        commit.url = "http://www.example.com"
         
         performSelector(inBackground: #selector(fetchCommits), with: nil)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(changeFilter))
         
         loadSavedData()
     }
