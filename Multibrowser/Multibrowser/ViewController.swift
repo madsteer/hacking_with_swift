@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         title = "Multibrowser"
     }
     
-    @objc func addWebView() {
+    @objc private func addWebView() {
         let webView = UIWebView()
         webView.delegate = self
         stackView.addArrangedSubview(webView)
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
 //        }
     }
     
-    @objc func deleteWebView() {
+    @objc private func deleteWebView() {
     }
     
     override func viewDidLoad() {
