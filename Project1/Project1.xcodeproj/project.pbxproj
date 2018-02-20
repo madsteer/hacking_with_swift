@@ -22,6 +22,7 @@
 		D8DE19EB203B848500F6D9EA /* nssl0049.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8DE19E1203B848500F6D9EA /* nssl0049.jpg */; };
 		D8DE19EC203B848500F6D9EA /* nssl0051.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8DE19E2203B848500F6D9EA /* nssl0051.jpg */; };
 		D8DE19ED203B848500F6D9EA /* nssl0091.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8DE19E3203B848500F6D9EA /* nssl0091.jpg */; };
+		D8DE19F3203C8AA000F6D9EA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE19F2203C8AA000F6D9EA /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D8DE19E1203B848500F6D9EA /* nssl0049.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0049.jpg; sourceTree = "<group>"; };
 		D8DE19E2203B848500F6D9EA /* nssl0051.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0051.jpg; sourceTree = "<group>"; };
 		D8DE19E3203B848500F6D9EA /* nssl0091.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0091.jpg; sourceTree = "<group>"; };
+		D8DE19F2203C8AA000F6D9EA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +76,10 @@
 		D8DE19C4203B7ED000F6D9EA /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
-				D8DE19C5203B7ED000F6D9EA /* AppDelegate.swift */,
-				D8DE19C7203B7ED000F6D9EA /* ViewController.swift */,
 				D8DE19C9203B7ED000F6D9EA /* Main.storyboard */,
-				D8DE19CC203B7ED000F6D9EA /* Assets.xcassets */,
-				D8DE19CE203B7ED000F6D9EA /* LaunchScreen.storyboard */,
-				D8DE19D1203B7ED000F6D9EA /* Info.plist */,
+				D8DE19C7203B7ED000F6D9EA /* ViewController.swift */,
+				D8DE19F2203C8AA000F6D9EA /* DetailViewController.swift */,
+				D8DE19F1203C72A100F6D9EA /* supporting files */,
 				D8DE19D9203B848500F6D9EA /* Content */,
 			);
 			path = Project1;
@@ -100,6 +100,17 @@
 				D8DE19E3203B848500F6D9EA /* nssl0091.jpg */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		D8DE19F1203C72A100F6D9EA /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D8DE19C5203B7ED000F6D9EA /* AppDelegate.swift */,
+				D8DE19CC203B7ED000F6D9EA /* Assets.xcassets */,
+				D8DE19CE203B7ED000F6D9EA /* LaunchScreen.storyboard */,
+				D8DE19D1203B7ED000F6D9EA /* Info.plist */,
+			);
+			name = "supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DE19F3203C8AA000F6D9EA /* DetailViewController.swift in Sources */,
 				D8DE19C8203B7ED000F6D9EA /* ViewController.swift in Sources */,
 				D8DE19C6203B7ED000F6D9EA /* AppDelegate.swift in Sources */,
 			);
