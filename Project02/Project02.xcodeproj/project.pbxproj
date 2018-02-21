@@ -54,8 +54,8 @@
 		D8DE1A3D203E1F4600F6D9EA /* Project02 */ = {
 			isa = PBXGroup;
 			children = (
-				D8DE1A40203E1F4600F6D9EA /* ViewController.swift */,
 				D8DE1A42203E1F4600F6D9EA /* Main.storyboard */,
+				D8DE1A40203E1F4600F6D9EA /* ViewController.swift */,
 				D8DE1A50203E1F5800F6D9EA /* supporting files */,
 			);
 			path = Project02;
