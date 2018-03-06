@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,28 +20,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHg-rC-s4F">
-                                <rect key="frame" x="87" y="100" width="200" height="100"/>
+                                <rect key="frame" x="87" y="100" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sHg-rC-s4F" secondAttribute="height" multiplier="4:1" id="WBA-BR-CCX"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nSJ-1n-LDc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNY-sg-w8V">
-                                <rect key="frame" x="87" y="230" width="200" height="100"/>
+                                <rect key="frame" x="87" y="180" width="200" height="50"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJa-fP-j8u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtj-e6-4Te">
-                                <rect key="frame" x="87" y="360" width="200" height="100"/>
+                                <rect key="frame" x="87" y="260" width="200" height="50"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="97y-Ni-46K"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Y-5c-vQf">
-                                <rect key="frame" x="87" y="490" width="200" height="50"/>
+                                <rect key="frame" x="87" y="340" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fz6-1C-xce"/>
                                 </constraints>
@@ -54,10 +58,14 @@
                             <constraint firstItem="Jtj-e6-4Te" firstAttribute="top" secondItem="UNY-sg-w8V" secondAttribute="bottom" constant="30" id="4vY-bS-p6e"/>
                             <constraint firstItem="UNY-sg-w8V" firstAttribute="leading" secondItem="Jtj-e6-4Te" secondAttribute="leading" id="7bR-8b-drM"/>
                             <constraint firstItem="Z3Y-5c-vQf" firstAttribute="top" secondItem="Jtj-e6-4Te" secondAttribute="bottom" constant="30" id="8tt-IT-1xU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z3Y-5c-vQf" secondAttribute="bottom" constant="20" id="JYi-i7-aqO"/>
                             <constraint firstItem="sHg-rC-s4F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PBe-gN-um7"/>
                             <constraint firstItem="Jtj-e6-4Te" firstAttribute="leading" secondItem="Z3Y-5c-vQf" secondAttribute="leading" id="TXH-9U-omQ"/>
+                            <constraint firstItem="Jtj-e6-4Te" firstAttribute="height" secondItem="UNY-sg-w8V" secondAttribute="height" id="XbZ-No-3IB"/>
+                            <constraint firstItem="Z3Y-5c-vQf" firstAttribute="height" secondItem="Jtj-e6-4Te" secondAttribute="height" id="Yh7-j5-rlp"/>
                             <constraint firstItem="Jtj-e6-4Te" firstAttribute="trailing" secondItem="Z3Y-5c-vQf" secondAttribute="trailing" id="h6d-CB-xBF"/>
                             <constraint firstItem="sHg-rC-s4F" firstAttribute="leading" secondItem="UNY-sg-w8V" secondAttribute="leading" id="i0I-cy-waC"/>
+                            <constraint firstItem="UNY-sg-w8V" firstAttribute="height" secondItem="sHg-rC-s4F" secondAttribute="height" id="iDW-kC-oOH"/>
                             <constraint firstItem="sHg-rC-s4F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="n1T-GT-9Eb"/>
                             <constraint firstItem="UNY-sg-w8V" firstAttribute="top" secondItem="sHg-rC-s4F" secondAttribute="bottom" constant="30" id="oBK-Kd-L0O"/>
                         </constraints>
