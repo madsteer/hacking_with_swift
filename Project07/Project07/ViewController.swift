@@ -12,6 +12,10 @@ class ViewController: UITableViewController {
 
     var petitions = [[String: String]]()
 
+    var urlStrings = [0: "https://api.whitehouse.gov/v1/petitions.json?limit=100",
+                      1: "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+    ]
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return petitions.count
     }
@@ -27,7 +31,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        let urlString = urlStrings[navigationController?.tabBarItem.tag ?? 0]!
 
         if let url = URL(string: urlString),
             let data = try? String(contentsOf: url) {
@@ -36,8 +40,15 @@ class ViewController: UITableViewController {
 
             if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                 parse(json: json)
+                return
+
+//            } else {
+//                showError()
             }
+//        } else {
+//            showError()
         }
+        showError()
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -46,7 +57,7 @@ class ViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    func parse(json: JSON) {
+    private func parse(json: JSON) {
         for result in json["results"].arrayValue {
             let title = result["title"].stringValue
             let body = result["body"].stringValue
@@ -55,6 +66,14 @@ class ViewController: UITableViewController {
             petitions.append(obj)
         }
         tableView.reloadData()
+    }
+
+    private func showError() {
+        let ac = UIAlertController(title: "Loading error", message:
+            "There was a problem loading the feed; please check your connection and try again.",
+                                   preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
     }
 }
 
