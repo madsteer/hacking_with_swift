@@ -18,3 +18,10 @@ In this project we learned:
  * `.joined(separator:)`  - join array of String with "separator"
  * `.replacingOccurencesOf()` - replace all occurrences of X with Y
 * `.forEach { $0.function() }` - to execute method on every object in array of objects
+
+## Project 9
+In this project we learned about Grand Central Dispatch (GCD).  Specifically:
+* `DispatchQueue.main.async { ...}`
+* `.performSelector(onMainThread:)`
+* `DispatchQueue.global(qos: .userInitiated).async { ... }`
+* `.performSelector(inBackground:)`
