@@ -44,4 +44,6 @@ Here we learned:
 
 ## Project 11 - SpriteKit
 Here we learned about SpriteKit.  Specifically:
-* 
+* SpriteKit
+* `SKSpriteNode`
+* `SKAction`
