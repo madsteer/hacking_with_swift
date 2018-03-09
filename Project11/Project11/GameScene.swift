@@ -19,17 +19,41 @@ class GameScene: SKScene {
         addChild(background)
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
 
-        for p in [0, 256, 512, 768, 1024] {
-            makeBouncer(at: CGPoint(x: p, y: 0))
+        for x in [0, 256, 512, 768, 1024] {
+            makeBouncer(at: CGPoint(x: x, y: 0))
+        }
+
+        for (index, x) in [128, 384, 640, 896].enumerated() {
+            makeSlot(at: CGPoint(x: x, y:0), isGood: index % 2 == 0)
         }
     }
 
-    func makeBouncer(at position: CGPoint) {
+    private func makeBouncer(at position: CGPoint) {
         let bouncer = SKSpriteNode(imageNamed: "bouncer")
         bouncer.position = position
         bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
         bouncer.physicsBody?.isDynamic = false
         addChild(bouncer)
+    }
+
+    private func makeSlot(at position: CGPoint, isGood: Bool) {
+        var slotBase: SKSpriteNode
+        var slotGlow: SKSpriteNode
+
+        switch isGood {
+        case true:
+            slotBase = SKSpriteNode(imageNamed: "slotBaseGood")
+            slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
+        case false:
+            slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
+            slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
+        }
+
+        slotBase.position = position
+        slotGlow.position = position
+
+        addChild(slotBase)
+        addChild(slotGlow)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
