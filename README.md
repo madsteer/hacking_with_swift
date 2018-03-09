@@ -41,3 +41,7 @@ Here we learned:
 * `UIIImage(ContentsOfFile:)` to read in data as an image (like reading a file in as `[String]`)
 * `UIImageJPEGRepresentation()` to convert a UIImage object to a Data object
 * `Data.write(to:)` to write data to a file in `~/Documents/`
+
+## Project 11 - SpriteKit
+Here we learned about SpriteKit.  Specifically:
+* 
