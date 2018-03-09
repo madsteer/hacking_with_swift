@@ -47,3 +47,4 @@ Here we learned about SpriteKit.  Specifically:
 * SpriteKit
 * `SKSpriteNode`
 * `SKAction`
+* `SKLabelNode`

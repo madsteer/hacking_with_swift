@@ -115,13 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				D83FFBD32052F34800372389 /* GameScene.sks */,
-				D83FFBD12052F34800372389 /* AppDelegate.swift */,
 				D83FFBD72052F34800372389 /* GameScene.swift */,
-				D83FFBD92052F34800372389 /* GameViewController.swift */,
-				D83FFBDB2052F34800372389 /* Main.storyboard */,
-				D83FFBDE2052F34800372389 /* Assets.xcassets */,
-				D83FFBE02052F34800372389 /* LaunchScreen.storyboard */,
-				D83FFBE32052F34800372389 /* Info.plist */,
+				D83FFC22205330E200372389 /* Supporting Files */,
 				D83FFBE92052F63B00372389 /* Content */,
 			);
 			path = Project11;
@@ -160,6 +155,19 @@
 				D83FFC052052F63B00372389 /* ballBlue.png */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		D83FFC22205330E200372389 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D83FFBD92052F34800372389 /* GameViewController.swift */,
+				D83FFBD12052F34800372389 /* AppDelegate.swift */,
+				D83FFBDB2052F34800372389 /* Main.storyboard */,
+				D83FFBDE2052F34800372389 /* Assets.xcassets */,
+				D83FFBE02052F34800372389 /* LaunchScreen.storyboard */,
+				D83FFBE32052F34800372389 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

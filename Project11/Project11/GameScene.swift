@@ -9,7 +9,13 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    var scoreLabel: SKLabelNode!
 
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
 
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -28,6 +34,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for (index, x) in [128, 384, 640, 896].enumerated() {
             makeSlot(at: CGPoint(x: x, y:0), isGood: index % 2 == 0)
         }
+
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabel.position = CGPoint(x: 980, y: 700)
+        addChild(scoreLabel)
     }
 
     private func makeBouncer(at position: CGPoint) {
@@ -72,10 +84,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     private func collisionBetween(ball: SKNode, object: SKNode) {
-        if object.name == "good" {
-            destroy(ball: ball)
-        } else if object.name == "bad" {
-            destroy(ball: ball)
+        if let name = object.name {
+            switch name {
+            case "good":
+                destroy(ball: ball)
+                score += 1
+            case "bad":
+                destroy(ball: ball)
+                score -= 1
+            default: return
+            }
         }
     }
 
