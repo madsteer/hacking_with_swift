@@ -1,5 +1,12 @@
 # Hacking with Swift
-Place to hold my solutions for the Hacking With Swift training series
+> Place to hold my solutions for the Hacking With Swift training series
+
+## Table of Contents
+* [Project 6](#project-6)
+* [Project 7](#project-7)
+* [Project 8](#project-8)
+* [Project 9](#project-9)
+* [Project 10](#project-10)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -25,3 +32,12 @@ In this project we learned about Grand Central Dispatch (GCD).  Specifically:
 * `.performSelector(onMainThread:)`
 * `DispatchQueue.global(qos: .userInitiated).async { ... }`
 * `.performSelector(inBackground:)`
+
+## Project 10
+Here we learned:
+* `UIImagePcikerController` to pick an image from the camera roll
+* custom class (Person)
+* `cellForItemAt`, `numberOfItemsInSection`, `didSelectItemAt` for `UICollectionViewController` is very similar to the "ForRowAt" methods in `UITableViewController`
+* `UIIImage(ContentsOfFile:)` to read in data as an image (like reading a file in as `[String]`)
+* `UIImageJPEGRepresentation()` to convert a UIImage object to a Data object
+* `Data.write(to:)` to write data to a file in `~/Documents/`
