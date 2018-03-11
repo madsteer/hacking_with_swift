@@ -151,7 +151,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     addChild(box)
                 } else {
 
-                    let ball = SKSpriteNode(imageNamed: "ballRed")
+                    let balls = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: self.balls()) as! [String]
+                    let ball = SKSpriteNode(imageNamed: balls[0])
                     ball.name = "ball"
 
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
@@ -164,5 +165,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+    }
+
+    private func balls() -> [String] {
+        var balls = [String]()
+        balls.append("ballBlue")
+        balls.append("ballCyan")
+        balls.append("ballGreen")
+        balls.append("ballGrey")
+        balls.append("ballPurple")
+        balls.append("ballRed")
+        balls.append("ballYello")
+        
+        return balls
     }
 }
