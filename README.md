@@ -53,7 +53,12 @@ Here we learned about SpriteKit.  Specifically:
 
 ## Project 12 - UserDefaults
 ### Using NSCoding
+* Good for mingling Swift with Objective-C
 * `UserDefaults`
 * `NSKeyedArchiver`
 
 ### Using Codable
+* Better if pure Swift
+* `Codable` interface
+* `JSONEncoder`
+* `JSONDecoder`
