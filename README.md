@@ -50,3 +50,10 @@ Here we learned about SpriteKit.  Specifically:
 * `SKAction`
 * `SKLabelNode`
 * `SKEmitterNode`
+
+## Project 12 - UserDefaults
+### Using NSCoding
+* `UserDefaults`
+* `NSKeyedArchiver`
+
+### Using Codable
