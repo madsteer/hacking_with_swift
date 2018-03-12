@@ -99,6 +99,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     private func destroy(ball: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
+
         ball.removeFromParent()
     }
 
@@ -127,37 +132,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    fileprivate func placeNewBall(_ location: CGPoint) {
+        let balls = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: self.balls()) as! [String]
+        let ball = SKSpriteNode(imageNamed: balls[0])
+        ball.name = "ball"
+
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+        ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask
+        ball.physicsBody?.restitution = 0.4
+
+        ball.position = CGPoint(x: location.x, y: super.size.height)
+
+        addChild(ball)
+    }
+
+    fileprivate func placeNewObsticle(_ location: CGPoint) {
+        let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(),
+                          height: 16)
+        let box = SKSpriteNode(color: RandomColor(), size: size)
+        box.name = "obsticle"
+        box.zRotation = RandomCGFloat(min: 0, max: 3)
+        box.position = location
+        box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
+        box.physicsBody?.isDynamic = false
+        addChild(box)
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
 
             let objects = nodes(at: location)
+            let obsticles = objects.filter { $0.name == "obsticle" }
+
             if objects.contains(editLabel) {
                 editingMode = !editingMode
-            } else {
+            } else if !obsticles.isEmpty {
+                obsticles[0].removeFromParent()
+            }else {
                 if editingMode {
-                    let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(),
-                                      height: 16)
-                    let box = SKSpriteNode(color: RandomColor(), size: size)
-                    box.zRotation = RandomCGFloat(min: 0, max: 3)
-                    box.position = location
-                    box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
-                    box.physicsBody?.isDynamic = false
-                    addChild(box)
+                    placeNewObsticle(location)
                 } else {
-
-                    let ball = SKSpriteNode(imageNamed: "ballRed")
-                    ball.name = "ball"
-
-                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-                    ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask
-                    ball.physicsBody?.restitution = 0.4
-
-                    ball.position = CGPoint(x: location.x, y: super.size.height)
-
-                    addChild(ball)
+                    placeNewBall(location)
                 }
             }
         }
+    }
+
+    private func balls() -> [String] {
+        var balls = [String]()
+        balls.append("ballBlue")
+        balls.append("ballCyan")
+        balls.append("ballGreen")
+        balls.append("ballGrey")
+        balls.append("ballPurple")
+        balls.append("ballRed")
+        balls.append("ballYello")
+        
+        return balls
     }
 }

@@ -48,3 +48,4 @@ Here we learned about SpriteKit.  Specifically:
 * `SKSpriteNode`
 * `SKAction`
 * `SKLabelNode`
+* `SKEmitterNode`
