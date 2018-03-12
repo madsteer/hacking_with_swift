@@ -8,6 +8,9 @@
 * [Project 9](#project-9)
 * [Project 10](#project-10)
 * [Project 11 - SpriteKit](#project-11---spritekit)
+* [Project 12 - UserDefaults](#project-12---userdefaults)
+    + [Using NSCoding](#using-nscoding)
+    + [Using Codable](#using-codable)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
