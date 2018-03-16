@@ -15,6 +15,8 @@
 		D8BB824F205AFD64009ECB7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BB824E205AFD64009ECB7A /* Assets.xcassets */; };
 		D8BB8252205AFD64009ECB7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BB8250205AFD64009ECB7A /* LaunchScreen.storyboard */; };
 		D8BB825A205AFFE8009ECB7A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB8259205AFFE8009ECB7A /* Helper.swift */; };
+		D8BB825F205B0DED009ECB7A /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB825E205B0DED009ECB7A /* WhackSlot.swift */; };
+		D8BB8261205BFFA3009ECB7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB8260205BFFA3009ECB7A /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D8BB8259205AFFE8009ECB7A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D8BB825C205B0061009ECB7A /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		D8BB825D205B0061009ECB7A /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
+		D8BB825E205B0DED009ECB7A /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
+		D8BB8260205BFFA3009ECB7A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +69,10 @@
 				D8BB824B205AFD64009ECB7A /* Main.storyboard */,
 				D8BB8243205AFD64009ECB7A /* GameScene.sks */,
 				D8BB8247205AFD64009ECB7A /* GameScene.swift */,
+				D8BB825E205B0DED009ECB7A /* WhackSlot.swift */,
 				D8BB8249205AFD64009ECB7A /* GameViewController.swift */,
 				D8BB8259205AFFE8009ECB7A /* Helper.swift */,
+				D8BB8260205BFFA3009ECB7A /* Model.swift */,
 				D8BB8241205AFD64009ECB7A /* AppDelegate.swift */,
 				D8BB824E205AFD64009ECB7A /* Assets.xcassets */,
 				D8BB8250205AFD64009ECB7A /* LaunchScreen.storyboard */,
@@ -159,7 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BB8248205AFD64009ECB7A /* GameScene.swift in Sources */,
+				D8BB825F205B0DED009ECB7A /* WhackSlot.swift in Sources */,
 				D8BB824A205AFD64009ECB7A /* GameViewController.swift in Sources */,
+				D8BB8261205BFFA3009ECB7A /* Model.swift in Sources */,
 				D8BB8242205AFD64009ECB7A /* AppDelegate.swift in Sources */,
 				D8BB825A205AFFE8009ECB7A /* Helper.swift in Sources */,
 			);
