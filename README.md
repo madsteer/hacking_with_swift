@@ -85,3 +85,7 @@ Here we learned about SpriteKit.  Specifically:
 
 
 ## Project 14
+* `SKCropNode`
+* `SKTexture`
+* `SKAction`
+* `*.caf` sound files
