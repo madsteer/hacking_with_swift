@@ -11,6 +11,8 @@
 * [Project 12 - UserDefaults](#project-12---userdefaults)
     + [Using NSCoding](#using-nscoding)
     + [Using Codable](#using-codable)
+* [Project 13](#project-13)
+* [Project 14](#project-14)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -65,3 +67,21 @@ Here we learned about SpriteKit.  Specifically:
 * `Codable` interface
 * `JSONEncoder`
 * `JSONDecoder`
+
+## Project 13
+* `UISlider`
+* `kCIInputImageKey`
+* `kCIInputRadiusKey`
+* `kCIInputScaleKey`
+* `kCIInputCenterKey`
+* `kCIInputIntensityKey`
+* `CIImage`
+* `CGImage`
+* `CIFilter`
+* `CIBumpDistortion`
+* `UIImageWriteToSavedPhotosAlbum`
+* Info.plist - `Privacy - Photo Library Usage Description`
+* Info.plist - `Privacy - Photo Library Additions Usage Description`
+
+
+## Project 14
