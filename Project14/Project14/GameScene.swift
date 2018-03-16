@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class GameScene: SKScene {
     var gameScore: SKLabelNode!
@@ -25,6 +26,7 @@ class GameScene: SKScene {
         SlotLocation(x: 100, y: 230),
         SlotLocation(x: 180, y: 140)
     ]
+    private var popupTime = 0.85
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "whackBackground")
@@ -39,6 +41,10 @@ class GameScene: SKScene {
         gameScore.fontSize = 48
         addChild(gameScore)
         createSlots()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+            self.createEnemy()
+        }
     }
 
     private func createSlots() {
@@ -47,6 +53,28 @@ class GameScene: SKScene {
             for i in 0 ..< max {
                 createSlot(at: CGPoint(x: location.x + (i * SlotLocation.modifier), y: location.y))
             }
+        }
+    }
+
+    private func createEnemy() {
+        popupTime *= 0.991
+        slots =
+            GKRandomSource.sharedRandom().arrayByShufflingObjects(in:
+                slots) as! [WhackSlot]
+        slots[0].show(hideTime: popupTime)
+        if RandomInt(min: 0, max: 12) > 4 { slots[1].show(hideTime:
+            popupTime) }
+        if RandomInt(min: 0, max: 12) > 8 {  slots[2].show(hideTime:
+            popupTime) }
+        if RandomInt(min: 0, max: 12) > 10 { slots[3].show(hideTime:
+            popupTime) }
+        if RandomInt(min: 0, max: 12) > 11 { slots[4].show(hideTime:
+            popupTime)  }
+        let minDelay = popupTime / 2.0
+        let maxDelay = popupTime * 2
+        let delay = RandomDouble(min: minDelay, max: maxDelay)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [unowned self] in
+            self.createEnemy()
         }
     }
 
