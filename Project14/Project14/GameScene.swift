@@ -28,6 +28,7 @@ class GameScene: SKScene {
     ]
     private var popupTime = 0.85
     var numRounds = 0
+    let startAndFinishLocation = CGPoint(x: 512, y: 384)
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "whackBackground")
@@ -43,9 +44,10 @@ class GameScene: SKScene {
         addChild(gameScore)
         createSlots()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            self.createEnemy()
-        }
+        resetGame()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+//            self.createEnemy()
+//        }
     }
 
     private func createSlots() {
@@ -67,17 +69,14 @@ class GameScene: SKScene {
         popupTime *= 0.991
         slots = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: slots) as! [WhackSlot]
         slots[0].show(hideTime: popupTime)
-        if RandomInt(min: 0, max: 12) > 4 { slots[1].show(hideTime:
-            popupTime) }
-        if RandomInt(min: 0, max: 12) > 8 {  slots[2].show(hideTime:
-            popupTime) }
-        if RandomInt(min: 0, max: 12) > 10 { slots[3].show(hideTime:
-            popupTime) }
-        if RandomInt(min: 0, max: 12) > 11 { slots[4].show(hideTime:
-            popupTime)  }
+        if RandomInt(min: 0, max: 12) > 4 { slots[1].show(hideTime: popupTime) }
+        if RandomInt(min: 0, max: 12) > 8 {  slots[2].show(hideTime: popupTime) }
+        if RandomInt(min: 0, max: 12) > 10 { slots[3].show(hideTime: popupTime) }
+        if RandomInt(min: 0, max: 12) > 11 { slots[4].show(hideTime: popupTime)  }
         let minDelay = popupTime / 2.0
         let maxDelay = popupTime * 2
         let delay = RandomDouble(min: minDelay, max: maxDelay)
+
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [unowned self] in
             self.createEnemy()
         }
@@ -89,15 +88,44 @@ class GameScene: SKScene {
         }
 
         let gameOver = SKSpriteNode(imageNamed: "gameOver")
-        gameOver.position = CGPoint(x: 512, y: 384)
+        gameOver.name = "gameOver"
+        gameOver.position = startAndFinishLocation
         gameOver.zPosition = 1
         addChild(gameOver)
+    }
+
+    private func resetGame() {
+        numRounds = 0
+        score = 0
+        popupTime = 0.85
+        let startGame = SKSpriteNode(imageNamed: "startGame")
+        startGame.name = "startGame"
+        startGame.position = startAndFinishLocation
+        startGame.zPosition = 1
+        addChild(startGame)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
             let tappedNodes = nodes(at: location)
+
+//            let gameOverNode = SKSpriteNode(imageNamed: "gameOver")
+//            if tappedNodes.contains(gameOverNode) {
+//                removeChildren(in: [gameOverNode])
+//                resetGame()
+//                return
+//            }
+//
+//            let startGameNode = SKSpriteNode(imageNamed: "startGame")
+//            if tappedNodes.contains(startGameNode) {
+//                removeChildren(in: [startGameNode])
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+//                    self.createEnemy()
+//                }
+//                return
+//            }
+
             for node in tappedNodes {
                 if let penguin = node.parent,
                     let whackSlot = penguin.parent as? WhackSlot {
@@ -118,6 +146,20 @@ class GameScene: SKScene {
                         score += 1
                         run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion:false))
                     }
+                }
+
+                if node.name == "gameOver" {
+                    removeChildren(in: [node])
+                    resetGame()
+                    return
+                }
+
+                if node.name == "startGame" {
+                    removeChildren(in: [node])
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                        self.createEnemy()
+                    }
+                    return
                 }
             }
         }

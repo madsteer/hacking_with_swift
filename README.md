@@ -88,4 +88,7 @@ Here we learned about SpriteKit.  Specifically:
 * `SKCropNode`
 * `SKTexture`
 * `SKAction`
+* GDD's `asyncAfter()`
 * `*.caf` sound files
+  * check target membership in file inspector if it appears the file is inaccessible
+
