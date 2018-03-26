@@ -45,9 +45,6 @@ class GameScene: SKScene {
         createSlots()
 
         resetGame()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-//            self.createEnemy()
-//        }
     }
 
     private func createSlots() {
@@ -109,22 +106,6 @@ class GameScene: SKScene {
         if let touch = touches.first {
             let location = touch.location(in: self)
             let tappedNodes = nodes(at: location)
-
-//            let gameOverNode = SKSpriteNode(imageNamed: "gameOver")
-//            if tappedNodes.contains(gameOverNode) {
-//                removeChildren(in: [gameOverNode])
-//                resetGame()
-//                return
-//            }
-//
-//            let startGameNode = SKSpriteNode(imageNamed: "startGame")
-//            if tappedNodes.contains(startGameNode) {
-//                removeChildren(in: [startGameNode])
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-//                    self.createEnemy()
-//                }
-//                return
-//            }
 
             for node in tappedNodes {
                 if let penguin = node.parent,
