@@ -99,6 +99,9 @@ class GameScene: SKScene {
         startGame.name = "startGame"
         startGame.position = startAndFinishLocation
         startGame.zPosition = 1
+        let size = startGame.size
+        let halfSize = CGSize(width: size.width / 2, height: size.height / 2)
+        startGame.scale(to: halfSize)
         addChild(startGame)
     }
 
