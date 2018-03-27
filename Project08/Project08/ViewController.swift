@@ -37,7 +37,14 @@ class ViewController: UIViewController {
     
     @IBAction func clearTapped(_ sender: Any) {
         currentAnswer.text = ""
-        activatedButtons.forEach { $0.isHidden = false }
+//        activatedButtons.forEach { $0.isHidden = false }
+        activatedButtons.forEach { view -> () in
+            view.isHidden = true
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: { view.alpha = 1 })
+            { (finished: Bool) in
+                view.isHidden = false
+            }
+        }
         activatedButtons.removeAll()
     }
 
@@ -51,7 +58,14 @@ class ViewController: UIViewController {
         level += 1
         solutions.removeAll(keepingCapacity: true)
         loadLevel()
-        letterButtons.forEach { $0.isHidden = false }
+//        letterButtons.forEach { $0.isHidden = false }
+        letterButtons.forEach { button -> () in
+            button.isHidden = true
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: { button.alpha = 1 })
+            { (finished: Bool) in
+                button.isHidden = false
+            }
+        }
     }
 
     private func loadLevel() {
@@ -100,6 +114,9 @@ class ViewController: UIViewController {
         currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!
         activatedButtons.append(btn)
         btn.isHidden = true
+        UIView.animate(withDuration: 1, delay: 0, options: [], animations: { btn.alpha = 0 }) { (finished: Bool) in
+            btn.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
