@@ -13,6 +13,7 @@
     + [Using Codable](#using-codable)
 * [Project 13](#project-13)
 * [Project 14](#project-14)
+* [Project 15 - Animation](#project-15---animation)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -92,4 +93,14 @@ Here we learned about SpriteKit.  Specifically:
 * `*.caf` sound files
   * check target membership in file inspector if it appears the file is inaccessible
 * scale SKSpriteNode
+
+## Project 15 - Animation
+* `UIView.animate()` - takes two closures
+  * default animatons versus "spring" animations
+* `CGAffineTransform`
+  * `CGAffineTransform(scaleX: 2, y: 2)` to double the size
+  * `CGAffineTransform.identity` to reset to original
+  * `CGAffineTransform(translationX: -256, y: -256)` to move the object up and to the left (negative number)
+  * `CGAffineTransform(rotationAngle:CGFloat.pi)` - rotation angle in radians - 2*pi is 360 degrees in radians
+* `imageView.alpha` - 0 to 1.  0 fully transparent, 1 fully opaque
 
