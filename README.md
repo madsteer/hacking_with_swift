@@ -93,3 +93,7 @@ Here we learned about SpriteKit.  Specifically:
   * check target membership in file inspector if it appears the file is inaccessible
 * scale SKSpriteNode
 
+## Project 15 - Animation
+* `UIView.animate()` - takes two closures
+* 
+
