@@ -95,5 +95,10 @@ Here we learned about SpriteKit.  Specifically:
 
 ## Project 15 - Animation
 * `UIView.animate()` - takes two closures
-* 
+* `CGAffineTransform`
+  * `CGAffineTransform(scaleX: 2, y: 2)` to double the size
+  * `CGAffineTransform.identity` to reset to original
+  * `CGAffineTransform(translationX: -256, y: -256)` to move the object up and to the left (negative number)
+  * `CGAffineTransform(rotationAngle:CGFloat.pi)` - rotation angle in radians - 2*pi is 360 degrees in radians
+* `imageView.alpha` - 0 to 1.  0 fully transparent, 1 fully opaque
 
