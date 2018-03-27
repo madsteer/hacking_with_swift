@@ -13,6 +13,7 @@
     + [Using Codable](#using-codable)
 * [Project 13](#project-13)
 * [Project 14](#project-14)
+* [Project 15 - Animation](#project-15---animation)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -95,6 +96,7 @@ Here we learned about SpriteKit.  Specifically:
 
 ## Project 15 - Animation
 * `UIView.animate()` - takes two closures
+  * default animatons versus "spring" animations
 * `CGAffineTransform`
   * `CGAffineTransform(scaleX: 2, y: 2)` to double the size
   * `CGAffineTransform.identity` to reset to original
