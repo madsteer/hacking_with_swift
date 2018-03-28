@@ -38,11 +38,15 @@ class ViewController: UIViewController {
     @IBAction func clearTapped(_ sender: Any) {
         currentAnswer.text = ""
 //        activatedButtons.forEach { $0.isHidden = false }
-        activatedButtons.forEach { view -> () in
-            view.isHidden = true
-            UIView.animate(withDuration: 1, delay: 0, options: [], animations: { view.alpha = 1 })
+        activatedButtons.forEach { (button: UIButton) in
+            button.isHidden = true
+            UIView.animate(withDuration: 3, delay: 0, options: [], animations: {
+                button.alpha = 1
+                button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                button.transform = CGAffineTransform.identity
+            })
             { (finished: Bool) in
-                view.isHidden = false
+                button.isHidden = false
             }
         }
         activatedButtons.removeAll()
@@ -59,9 +63,13 @@ class ViewController: UIViewController {
         solutions.removeAll(keepingCapacity: true)
         loadLevel()
 //        letterButtons.forEach { $0.isHidden = false }
-        letterButtons.forEach { button -> () in
+        letterButtons.forEach { (button: UIButton) in
             button.isHidden = true
-            UIView.animate(withDuration: 1, delay: 0, options: [], animations: { button.alpha = 1 })
+            UIView.animate(withDuration: 3, delay: 0, options: [], animations: {
+                button.alpha = 1
+                button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                button.transform = CGAffineTransform.identity
+            })
             { (finished: Bool) in
                 button.isHidden = false
             }
@@ -114,7 +122,11 @@ class ViewController: UIViewController {
         currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!
         activatedButtons.append(btn)
         btn.isHidden = true
-        UIView.animate(withDuration: 1, delay: 0, options: [], animations: { btn.alpha = 0 }) { (finished: Bool) in
+        UIView.animate(withDuration: 3, delay: 0, options: [], animations: {
+            btn.alpha = 0
+            btn.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            btn.transform = CGAffineTransform.identity
+        }) { (finished: Bool) in
             btn.isHidden = false
         }
     }
