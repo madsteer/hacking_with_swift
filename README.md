@@ -115,5 +115,17 @@ Here we learned about SpriteKit.  Specifically:
     * `NSExtensionActivationRule`
       * `NSExtensionActivationSupportsWebPageWithMaxCount`
     * `NSExtensionJavaScriptPreprocessingFile`
+* `NSDictionary`
+* adjust screen for on screen keyboard so you can see whole screen
+  * `NotificationCenter`
+    * `UIKeyboardWillHide`
+    * `UIKeyboardWillChangeFrame`
+    * `UIKeyboardFrameEndUserInfoKey`
+    * `view.convert`
+    * `Notification.Name.UIKeyboardWillHide`
+    * `UIEdgeInsets`
+    * `UITextView.contentInset`
+  
+
 
 
