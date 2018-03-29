@@ -104,3 +104,28 @@ Here we learned about SpriteKit.  Specifically:
   * `CGAffineTransform(rotationAngle:CGFloat.pi)` - rotation angle in radians - 2*pi is 360 degrees in radians
 * `imageView.alpha` - 0 to 1.  0 fully transparent, 1 fully opaque
 
+## Project 16
+* Safari Extension
+* `ActionViewController`
+* `NSExtensionContext`
+* `NSItemProvider`
+* `loadItem(forTypeIdentifier: )`
+* In the Extension's `info.plist`: `NSExtension`
+  * `NSExtensionAttributes`
+    * `NSExtensionActivationRule`
+      * `NSExtensionActivationSupportsWebPageWithMaxCount`
+    * `NSExtensionJavaScriptPreprocessingFile`
+* `NSDictionary`
+* adjust screen for on screen keyboard so you can see whole screen
+  * `NotificationCenter`
+    * `UIKeyboardWillHide`
+    * `UIKeyboardWillChangeFrame`
+    * `UIKeyboardFrameEndUserInfoKey`
+    * `view.convert`
+    * `Notification.Name.UIKeyboardWillHide`
+    * `UIEdgeInsets`
+    * `UITextView.contentInset`
+  
+
+
+
