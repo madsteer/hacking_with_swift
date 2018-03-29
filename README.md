@@ -14,6 +14,7 @@
 * [Project 13](#project-13)
 * [Project 14](#project-14)
 * [Project 15 - Animation](#project-15---animation)
+* [Project 16](#project-16)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
