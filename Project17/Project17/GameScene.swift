@@ -28,8 +28,10 @@ class GameScene: SKScene {
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
+
         physicsWorld.gravity = CGVector(dx: 0, dy: -6)
         physicsWorld.speed = 0.85
+
         createScore()
         createLives()
         createSlices()
@@ -57,13 +59,17 @@ class GameScene: SKScene {
     private func createSlices() {
         activeSliceBG = SKShapeNode()
         activeSliceBG.zPosition = 2
+
         activeSliceFG = SKShapeNode()
         activeSliceFG.zPosition = 2
+
         activeSliceBG.strokeColor = UIColor(red: 1, green: 0.9,
                                             blue: 0, alpha: 1)
         activeSliceBG.lineWidth = 9
+
         activeSliceFG.strokeColor = UIColor.white
         activeSliceFG.lineWidth = 5
+
         addChild(activeSliceBG)
         addChild(activeSliceFG)
     }
@@ -76,12 +82,10 @@ class GameScene: SKScene {
         }
 
         activeSlicePoints = Array(activeSlicePoints.suffix(12))
-//        while activeSlicePoints.count > 12 {
-//            activeSlicePoints.remove(at: 0)
-//        }
 
         let path = UIBezierPath()
         path.move(to: activeSlicePoints[0])
+
         for i in 1 ..< activeSlicePoints.count {
             path.addLine(to: activeSlicePoints[i])
         }
