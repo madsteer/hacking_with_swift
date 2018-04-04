@@ -27,6 +27,7 @@
 		D817653C206D744C00ACAF94 /* swoosh3.caf in Resources */ = {isa = PBXBuildFile; fileRef = D8176526206D744C00ACAF94 /* swoosh3.caf */; };
 		D817653D206D744C00ACAF94 /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = D8176527206D744C00ACAF94 /* swoosh2.caf */; };
 		D817653E206D744C00ACAF94 /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = D8176528206D744C00ACAF94 /* swoosh1.caf */; };
+		D877C61A2074099900E4E083 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877C6192074099900E4E083 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D8176526206D744C00ACAF94 /* swoosh3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh3.caf; sourceTree = "<group>"; };
 		D8176527206D744C00ACAF94 /* swoosh2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh2.caf; sourceTree = "<group>"; };
 		D8176528206D744C00ACAF94 /* swoosh1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh1.caf; sourceTree = "<group>"; };
+		D877C6192074099900E4E083 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				D81764FA206D406F00ACAF94 /* GameScene.sks */,
 				D81764FC206D406F00ACAF94 /* Actions.sks */,
 				D81764FE206D406F00ACAF94 /* GameScene.swift */,
+				D877C6192074099900E4E083 /* Model.swift */,
 				D8176500206D406F00ACAF94 /* GameViewController.swift */,
 				D8176510206D73FE00ACAF94 /* Helper.swift */,
 				D81764F8206D406F00ACAF94 /* AppDelegate.swift */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D877C61A2074099900E4E083 /* Model.swift in Sources */,
 				D81764FF206D406F00ACAF94 /* GameScene.swift in Sources */,
 				D8176501206D406F00ACAF94 /* GameViewController.swift in Sources */,
 				D81764F9206D406F00ACAF94 /* AppDelegate.swift in Sources */,
