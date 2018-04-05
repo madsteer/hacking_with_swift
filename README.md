@@ -15,6 +15,7 @@
 * [Project 14](#project-14)
 * [Project 15 - Animation](#project-15---animation)
 * [Project 16](#project-16)
+* [Project 17](#project-17)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -126,7 +127,9 @@ Here we learned about SpriteKit.  Specifically:
     * `Notification.Name.UIKeyboardWillHide`
     * `UIEdgeInsets`
     * `UITextView.contentInset`
-  
 
-
+## Project 17
+* `SKShapeNode`
+* `AVAudioPlayer`
+* `UIBezierPath`
 
