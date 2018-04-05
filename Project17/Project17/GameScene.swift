@@ -16,7 +16,9 @@ class GameScene: SKScene {
     var score = 0 {
         didSet {
             gameScore.text = "Score: \(score)"
-        } }
+        }
+    }
+    
     var livesImages = [SKSpriteNode]()
     var lives = 3
     var activeSliceBG: SKShapeNode!
@@ -105,14 +107,10 @@ class GameScene: SKScene {
 
     private func createEnemy(forceBomb: ForceBomb = .random) {
         var enemy: SKSpriteNode
-        var enemyType = RandomInt(min: 0, max: 6)
-        if forceBomb == .never {
-            enemyType = 1
-        } else if forceBomb == .always {
-            enemyType = 0
-        }
 
-        if enemyType == 0 {
+        let localForceBomb = (forceBomb == .random) ? ForceBomb.randomize() : forceBomb
+
+        if localForceBomb == .always {
             enemy = makeBomb()
         } else {
             enemy = SKSpriteNode(imageNamed: "penguin")

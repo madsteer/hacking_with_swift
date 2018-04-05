@@ -8,8 +8,13 @@
 
 import Foundation
 
-enum ForceBomb {
-    case never, always, random
+enum ForceBomb: Int {
+    case always = 0, never, random
+
+    static func randomize() -> ForceBomb {
+        let randomInt = Int(arc4random_uniform(UInt32((6 - 0) + 1))) + 0
+        return randomInt == 0 ? .always : .never
+    }
 }
 
 enum SequenceType: Int {
