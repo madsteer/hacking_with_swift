@@ -91,24 +91,12 @@ class GameScene: SKScene {
             for cnt in 1 ... 3 {
             DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * Double(cnt)))
                 { [unowned self] in self.createEnemy() }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 2))
-//                { [unowned self] in self.createEnemy() }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 3))
-//                { [unowned self] in self.createEnemy() }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 4))
-//                { [unowned self] in self.createEnemy() }
             }
         case .fastChain:
             createEnemy()
             for cnt in 1 ... 4 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * Double(cnt)))
                     { [unowned self] in self.createEnemy() }
-//                DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 2))
-//                { [unowned self] in self.createEnemy() }
-//                DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 3))
-//                { [unowned self] in self.createEnemy() }
-//                DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 4))
-//                { [unowned self] in self.createEnemy() }
             }
         }
         sequencePosition += 1
@@ -134,32 +122,6 @@ class GameScene: SKScene {
         }
 
         enemy = position(enemy: enemy)
-//        // 1
-//        let randomPosition = CGPoint(x: RandomInt(min: 64, max: 960),
-//                                     y: -128)
-//        enemy.position = randomPosition
-//        // 2
-//        let randomAngularVelocity = CGFloat(RandomInt(min: -6, max:
-//            6)) / 2.0
-//        var randomXVelocity = 0
-//        // 3
-//        if randomPosition.x < 256 {
-//            randomXVelocity = RandomInt(min: 8, max: 15)
-//        } else if randomPosition.x < 512 {
-//            randomXVelocity = RandomInt(min: 3, max: 5)
-//        } else if randomPosition.x < 768 {
-//            randomXVelocity = -RandomInt(min: 3, max: 5)
-//        } else {
-//            randomXVelocity = -RandomInt(min: 8, max: 15)
-//        }
-//        // 4
-//        let randomYVelocity = RandomInt(min: 24, max: 32)
-//        // 5
-//        enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
-//        enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity *
-//            40, dy: randomYVelocity * 40)
-//        enemy.physicsBody?.angularVelocity = randomAngularVelocity
-//        enemy.physicsBody?.collisionBitMask = 0
 
         addChild(enemy)
         activeEnemies.append(enemy)
@@ -465,9 +427,6 @@ class GameScene: SKScene {
         }
         if triggeredByBomb {
             livesImages.forEach { $0.texture = SKTexture(imageNamed: "sliceLifeGone") }
-//            livesImages[0].texture = SKTexture(imageNamed: "sliceLifeGone")
-//            livesImages[1].texture = SKTexture(imageNamed: "sliceLifeGone")
-//            livesImages[2].texture = SKTexture(imageNamed: "sliceLifeGone")
         }
     }
 }
