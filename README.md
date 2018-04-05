@@ -16,6 +16,7 @@
 * [Project 15 - Animation](#project-15---animation)
 * [Project 16](#project-16)
 * [Project 17](#project-17)
+* [Project 18 - Debugging](#project-18)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -133,3 +134,13 @@ Here we learned about SpriteKit.  Specifically:
 * `AVAudioPlayer`
 * `UIBezierPath`
 
+## Project 18
+* All about debugging.
+  * `print()`
+  * `Assert()`
+  * breakpoints
+    * conditional logic
+    * break on exception
+  * some debugging tooling around UIs
+    * Show View Frames
+    * Capture View Hierarchy
