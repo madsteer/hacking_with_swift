@@ -17,6 +17,7 @@
 * [Project 16](#project-16)
 * [Project 17](#project-17)
 * [Project 18 - Debugging](#project-18)
+* [Project 19 - MapKit](#project-19)
 
 ## Project 6
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
@@ -144,3 +145,15 @@ Here we learned about SpriteKit.  Specifically:
   * some debugging tooling around UIs
     * Show View Frames
     * Capture View Hierarchy
+    
+## Project 19
+* MapKit
+* `MKMapView`
+* protocols
+* annotations
+  * `CLLocationCoordinate2D`
+  * `MKAnnotation`
+  * Customizing annotations
+* `MKPinAnnotationView`
+  * `canShowCallout()`
+  
