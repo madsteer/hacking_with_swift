@@ -16,6 +16,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Type", style: .plain, target: self, action: #selector(changeMapType))
+
         let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
                              info: "Home to the 2012 Summer Olympics.")
         let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75),
@@ -32,6 +34,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(paris)
         mapView.addAnnotation(rome)
         mapView.addAnnotation(washington)
+    }
+
+    @objc private func changeMapType() {
+        let ac = UIAlertController(title: "Change Map View Type", message: nil, preferredStyle: .alert)   // .actionSheet
+        ac.addAction(UIAlertAction(title: "Satelite View", style: .default) { [unowned self] _ in
+            self.mapView.mapType = .satellite
+        })
+        ac.addAction(UIAlertAction(title: "Transit View", style: .default) { [unowned self] _ in
+            self.mapView.mapType = .standard
+        })
+        ac.addAction(UIAlertAction(title: "Hybrid View", style: .default) { [unowned self] _ in
+            self.mapView.mapType = .hybrid
+        })
+        present(ac, animated: true)
     }
 
     internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
