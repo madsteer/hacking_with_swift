@@ -19,15 +19,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Type", style: .plain, target: self, action: #selector(changeMapType))
 
         let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
-                             info: "Home to the 2012 Summer Olympics.")
+                             info: "Home to the 2012 Summer Olympics.", favorite: false)
         let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75),
-                           info: "Founded over a thousand years ago.")
+                           info: "Founded over a thousand years ago.", favorite: false)
         let paris = Capital(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508),
-                            info: "Often called the City of Light.")
+                            info: "Often called the City of Light.", favorite: false)
         let rome = Capital(title: "Rome", coordinate: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5),
-                           info: "Has a whole country inside it.")
+                           info: "Has a whole country inside it.", favorite: false)
         let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667),
-                                 info: "Named after George himself.")
+                                 info: "Named after George himself.", favorite: false)
 
         mapView.addAnnotation(london)
         mapView.addAnnotation(oslo)
@@ -55,31 +55,42 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let identifier = "Capital"
         // 2, 7
         guard annotation is Capital else { return nil }
+        let capital = annotation as! Capital
         // 3
         if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
             // 6
-            annotationView.annotation = annotation
-            return annotationView
+            let pinAnnotationView = annotationView as! MKPinAnnotationView
+            pinAnnotationView.annotation = annotation
+            pinAnnotationView.pinTintColor = capital.favorite ? .green : pinAnnotationView.pinTintColor
+            return pinAnnotationView
         }
         //4
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        annotationView.canShowCallout = true
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        pinAnnotationView.canShowCallout = true
+        pinAnnotationView.pinTintColor = capital.favorite ? .green : pinAnnotationView.pinTintColor
         // 5
         let btn = UIButton(type: .detailDisclosure)
-        annotationView.rightCalloutAccessoryView = btn
+        pinAnnotationView.rightCalloutAccessoryView = btn
 
-        return annotationView
+        return pinAnnotationView
     }
 
     internal func mapView(_ mapView: MKMapView,
                           annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 
-        let capital = view.annotation as! Capital
-        let placeName = capital.title
-        let placeInfo = capital.info
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        if let annotation = view.annotation {
+            let capital = view.annotation as! Capital
+            let placeName = capital.title
+            let placeInfo = capital.info
+            let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            ac.addAction(UIAlertAction(title: "Favoriate?", style: .destructive) { [unowned self, capital, annotation] _ in
+                capital.favorite = !capital.favorite
+                self.mapView.removeAnnotation(annotation)
+                self.mapView.addAnnotation(annotation)
+            })
+            present(ac, animated: true)
+        }
     }
 }
 
