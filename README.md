@@ -2,31 +2,48 @@
 > Place to hold my solutions for the Hacking With Swift training series
 
 ## Table of Contents
-* [Project 6](#project-6)
-* [Project 7](#project-7)
-* [Project 8](#project-8)
-* [Project 9](#project-9)
-* [Project 10](#project-10)
-* [Project 11 - SpriteKit](#project-11---spritekit)
-* [Project 12 - UserDefaults](#project-12---userdefaults)
+* [Table of Contents](#table-of-contents)
+  * [Project 1 - Storm Viewer](#project-1---storm-viewer)
+  * [Project 2 - Guess the Flag](#project-2---guess-the-flag)
+  * [Project 3 - Social Media](#project-3---social-media)
+  * [Project 4 - Easy Browser](#project-4---easy-browser)
+  * [Project 5 - Word Scramble](#project-5---word-scramble)
+  * [Project 6 - Auto Layout](#project-6---auto-layout)
+  * [Project 7 - Whitehouse Petitions](#project-7---whitehouse-petitions)
+  * [Project 8 - Swifty Words](#project-8---swifty-words)
+  * [Project 9 - Grand Central Dispatch](#project-9---grand-central-dispatch)
+  * [Project 10 - Names to Faces](#project-10---names-to-faces)
+  * [Project 11 - SpriteKit](#project-11---spritekit)
+  * [Project 12 - UserDefaults](#project-12---userdefaults)
     + [Using NSCoding](#using-nscoding)
     + [Using Codable](#using-codable)
-* [Project 13](#project-13)
-* [Project 14](#project-14)
-* [Project 15 - Animation](#project-15---animation)
-* [Project 16](#project-16)
-* [Project 17](#project-17)
-* [Project 18 - Debugging](#project-18)
+  * [Project 13 - Instafilter](#project-13---instafilter)
+  * [Project 14 - What-a-Penguin](#project-14---what-a-penguin)
+  * [Project 15 - Animation](#project-15---animation)
+  * [Project 16 - Javascript Injection](#project-16---javascript-injection)
+  * [Project 17 - Swifty Ninja](#project-17---swifty-ninja)
+  * [Project 18 - Debugging](#project-18---debugging)
+  * [Project 19 - Capital Cities](#project-19---capital-cities)
 
-## Project 6
+## Project 1 - Storm Viewer
+
+## Project 2 - Guess the Flag
+
+## Project 3 - Social Media
+
+## Project 4 - Easy Browser
+
+## Project 5 - Word Scramble
+
+## Project 6 - Auto Layout
 In this project we fix vertical spacing for project 2 so that it will work in landscape mode, and we learn how to programmatically add constraints to our UI
 
-## Project 7
+## Project 7 - Whitehouse Petitions
 In this project we learned:
 * How to use UITabBarController to reuse one interface design for multiple similar interfaces.
 * Create a ViewController class that isn't in the storyboard, but just pushed onto the view in code.
 
-## Project 8
+## Project 8 - Swifty Words
 In this project we learned:
 * programmatically added a method to a button press with .addTarget()
 * used `.enumerated()` on an array to get the element and the elements index as a tuple
@@ -36,14 +53,14 @@ In this project we learned:
  * `.replacingOccurencesOf()` - replace all occurrences of X with Y
 * `.forEach { $0.function() }` - to execute method on every object in array of objects
 
-## Project 9
+## Project 9 - Grand Central Dispatch
 In this project we learned about Grand Central Dispatch (GCD).  Specifically:
 * `DispatchQueue.main.async { ...}`
 * `.performSelector(onMainThread:)`
 * `DispatchQueue.global(qos: .userInitiated).async { ... }`
 * `.performSelector(inBackground:)`
 
-## Project 10
+## Project 10 - Names to Faces
 Here we learned:
 * `UIImagePcikerController` to pick an image from the camera roll
 * custom class (Person)
@@ -72,7 +89,7 @@ Here we learned about SpriteKit.  Specifically:
 * `JSONEncoder`
 * `JSONDecoder`
 
-## Project 13
+## Project 13 - Instafilter
 * `UISlider`
 * `kCIInputImageKey`
 * `kCIInputRadiusKey`
@@ -88,7 +105,7 @@ Here we learned about SpriteKit.  Specifically:
 * Info.plist - `Privacy - Photo Library Additions Usage Description`
 
 
-## Project 14
+## Project 14 - What-a-Penguin
 * `SKCropNode`
 * `SKTexture`
 * `SKAction`
@@ -107,7 +124,7 @@ Here we learned about SpriteKit.  Specifically:
   * `CGAffineTransform(rotationAngle:CGFloat.pi)` - rotation angle in radians - 2*pi is 360 degrees in radians
 * `imageView.alpha` - 0 to 1.  0 fully transparent, 1 fully opaque
 
-## Project 16
+## Project 16 - Javascript Injection
 * Safari Extension
 * `ActionViewController`
 * `NSExtensionContext`
@@ -129,12 +146,12 @@ Here we learned about SpriteKit.  Specifically:
     * `UIEdgeInsets`
     * `UITextView.contentInset`
 
-## Project 17
+## Project 17 - Swifty Ninja
 * `SKShapeNode`
 * `AVAudioPlayer`
 * `UIBezierPath`
 
-## Project 18
+## Project 18 - Debugging
 * All about debugging.
   * `print()`
   * `Assert()`
@@ -144,3 +161,15 @@ Here we learned about SpriteKit.  Specifically:
   * some debugging tooling around UIs
     * Show View Frames
     * Capture View Hierarchy
+    
+## Project 19 - Capital Cities
+* MapKit
+* `MKMapView`
+* protocols
+* annotations
+  * `CLLocationCoordinate2D`
+  * `MKAnnotation`
+  * Customizing annotations
+* `MKPinAnnotationView`
+  * `canShowCallout()`
+  
