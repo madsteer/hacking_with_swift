@@ -105,11 +105,74 @@ class GameScene: SKScene {
         fireworks.append(node)
         addChild(node)
     }
-    
+
+    func explodeFireworks() {
+        var numExploded = 0
+
+        fireworks.forEach {
+            if $0.name == "selected" {
+                explode(firework: $0)
+                numExploded += 1
+            }
+        }
+        fireworks = fireworks.filter { $0.name != "selected" }
+
+//        for (index, fireworkContainer) in
+//            fireworks.enumerated().reversed() {
+//                let firework = fireworkContainer.children[0] as!
+//                SKSpriteNode
+//                if firework.name == "selected" {
+//                    // destroy this firework!
+//                    explode(firework: fireworkContainer)
+//                    fireworks.remove(at: index)
+//                    numExploded += 1
+//                }
+//        }
+
+        score += exponent(numExploded) * 100
+//        switch numExploded {
+//        case 0:
+//            // nothing – rubbish!
+//            break
+//        case 1:
+//            score += 200
+//        case 2:
+//            score += 500
+//        case 3:
+//            score += 1500
+//        case 4:
+//            score += 2500
+//        default:
+//            score += 4000
+//        }
+    }
+
+    private func exponent(_ num: Int) -> Int {
+        switch num {
+        case 0:
+            return 0
+        case 1:
+            return 1
+        default:
+            return num + (num - 1)
+        }
+    }
+
+    private func explode(firework: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "explode")!
+        emitter.position = firework.position
+        addChild(emitter)
+        firework.removeFromParent()
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        checkTouches(touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        checkTouches(touches)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -117,9 +180,32 @@ class GameScene: SKScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
-    
+
+    private func checkTouches(_ touches: Set<UITouch>) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let nodesAtPoint = nodes(at: location)
+        for node in nodesAtPoint {
+            if node is SKSpriteNode {
+                let sprite = node as! SKSpriteNode
+                if sprite.name == "firework" {
+                    let selectedFireworks = fireworks.filter { $0.name == "selected" }
+                    selectedFireworks.forEach {
+                        let fw = $0 as! SKSpriteNode
+                        if fw.name == "selected" && fw.color != sprite.color {
+                            fw.name = "firework"
+                            fw.colorBlendFactor = 1
+                        }
+                    }
+                    sprite.name = "selected"
+                    sprite.colorBlendFactor = 0
+                }
+            }
+        }
+    }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        fireworks.forEach { if $0.position.y > 900 { $0.removeFromParent() } }
+        fireworks = fireworks.filter { $0.position.y <= 900 }
     }
 }

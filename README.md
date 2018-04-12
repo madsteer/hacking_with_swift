@@ -173,3 +173,11 @@ Here we learned about SpriteKit.  Specifically:
 * `MKPinAnnotationView`
   * `canShowCallout()`
   
+  
+## Project 20 - Fireworks Night
+* `Timer` object
+* More `SKNode`
+  * `color`
+  * `colorBlendFactor`
+* `SKAction.follow()`
+* how to detect the device being shaken
