@@ -24,6 +24,7 @@
   * [Project 17 - Swifty Ninja](#project-17---swifty-ninja)
   * [Project 18 - Debugging](#project-18---debugging)
   * [Project 19 - Capital Cities](#project-19---capital-cities)
+  * [Project 20 - Fireworks Night](#project-20---fireworks-night)
 
 ## Project 1 - Storm Viewer
 
@@ -161,7 +162,7 @@ Here we learned about SpriteKit.  Specifically:
   * some debugging tooling around UIs
     * Show View Frames
     * Capture View Hierarchy
-    
+
 ## Project 19 - Capital Cities
 * MapKit
 * `MKMapView`
@@ -172,8 +173,8 @@ Here we learned about SpriteKit.  Specifically:
   * Customizing annotations
 * `MKPinAnnotationView`
   * `canShowCallout()`
-  
-  
+
+
 ## Project 20 - Fireworks Night
 * `Timer` object
 * More `SKNode`
