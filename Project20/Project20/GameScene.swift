@@ -103,7 +103,7 @@ class GameScene: SKScene {
         path.addLine(to: CGPoint(x: xMovement, y: 1000))
         // 5
         let move = SKAction.follow(path.cgPath, asOffset: true,
-                                   orientToPath: true, speed: 50)
+                                   orientToPath: true, speed: 200)
         node.run(move)
         // 6
         let emitter = SKEmitterNode(fileNamed: "fuse")!
@@ -117,18 +117,9 @@ class GameScene: SKScene {
     func explodeFireworks() {
         var numExploded = 0
 
-//        fireworks.forEach {
-//            if $0.name == "selected" {
-//                explode(firework: $0)
-//                numExploded += 1
-//            }
-//        }
-//        fireworks = fireworks.filter { $0.name != "selected" }
-
         for (index, fireworkContainer) in
             fireworks.enumerated().reversed() {
-                let firework = fireworkContainer.children[0] as!
-                SKSpriteNode
+                let firework = fireworkContainer.children[0] as! SKSpriteNode
                 if firework.name == "selected" {
                     // destroy this firework!
                     explode(firework: fireworkContainer)
@@ -137,22 +128,7 @@ class GameScene: SKScene {
                 }
         }
 
-//        score += exponent(numExploded) * 100
-        switch numExploded {
-        case 0:
-            // nothing – rubbish!
-            break
-        case 1:
-            score += 200
-        case 2:
-            score += 500
-        case 3:
-            score += 1500
-        case 4:
-            score += 2500
-        default:
-            score += 4000
-        }
+        score += exponent(numExploded) * 100
     }
 
     private func exponent(_ num: Int) -> Int {
@@ -183,12 +159,6 @@ class GameScene: SKScene {
         checkTouches(touches)
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-
     private func checkTouches(_ touches: Set<UITouch>) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
@@ -197,21 +167,12 @@ class GameScene: SKScene {
             if node is SKSpriteNode {
                 let sprite = node as! SKSpriteNode
                 if sprite.name == "firework" {
-//                    let selectedFireworks = fireworks.filter { $0.name == "selected" }
-//                    selectedFireworks.forEach {
-//                        let fw = $0 as! SKSpriteNode
-//                        if fw.name == "selected" && fw.color != sprite.color {
-//                            fw.name = "firework"
-//                            fw.colorBlendFactor = 1
-//                        }
-//                    }
-
-                    for parent in fireworks {
-                        let firework = parent.children[0] as! SKSpriteNode
-                        if firework.name == "selected" && firework.color !=
-                            sprite.color {
-                            firework.name = "firework"
-                            firework.colorBlendFactor = 1
+                    let selectedFireworks = fireworks.filter { $0.name == "selected" }
+                    selectedFireworks.forEach {
+                        let fw = $0 as! SKSpriteNode
+                        if fw.name == "selected" && fw.color != sprite.color {
+                            fw.name = "firework"
+                            fw.colorBlendFactor = 1
                         }
                     }
 
@@ -223,15 +184,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        fireworks.forEach { if $0.position.y > 900 { $0.removeFromParent() } }
-//        fireworks = fireworks.filter { $0.position.y <= 900 }
-
-        for (index, firework) in fireworks.enumerated().reversed() {
-            if firework.position.y > 900 {
-                // this uses a position high above so that rockets can explode off screen
-                fireworks.remove(at: index)
-                firework.removeFromParent()
-            }
-        }
+        fireworks.forEach { if $0.position.y > 900 { $0.removeFromParent() } }
+        fireworks = fireworks.filter { $0.position.y <= 900 }
     }
 }
