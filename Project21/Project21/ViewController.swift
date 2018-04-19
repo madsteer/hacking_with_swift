@@ -13,13 +13,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain,
-                                                           target: self, action: #selector(registerLocal))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain,
+//                                                           target: self, action: #selector(requestPermission))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain,
                                                             target: self, action: #selector(scheduleLocal))
     }
 
-    @objc func registerLocal() {
+    @objc func requestPermission() {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
@@ -30,9 +30,20 @@ class ViewController: UIViewController {
         }
     }
 
+    let permissionNotAskedFor = 0
+
     @objc func scheduleLocal() {
         let center = UNUserNotificationCenter.current()
+
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus.rawValue == self.permissionNotAskedFor {
+                self.requestPermission()
+            }
+        }
+
         center.removeAllPendingNotificationRequests()
+        center.removeAllDeliveredNotifications()
+
 
         let content = UNMutableNotificationContent()
         content.title = "Late wake up call"
@@ -41,7 +52,9 @@ class ViewController: UIViewController {
         content.userInfo = ["customData": "fizzbuzz"]
         content.sound = UNNotificationSound.default()
 
-        if let date = Calendar.current.date(byAdding: .minute, value: 1, to: Date()) {
+        let curCal = Calendar.current
+        let date = Date()
+        if let date = curCal.date(byAdding: .minute, value: (curCal.component(.second, from: date) < 40) ? 1 : 2, to: date) {
 
             var dateComponents = DateComponents()
             dateComponents.hour = Calendar.current.component(.hour, from: date)
