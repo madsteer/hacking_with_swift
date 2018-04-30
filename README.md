@@ -27,6 +27,7 @@
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
   * [Project 21 - Local Notifications](#project-21---local-notifications)
+  * [Project 22 - Detect-a-Beacon](#project-22---detect-a-beacon)
 
 ## Project 1 - Storm Viewer
 
@@ -195,4 +196,7 @@ Here we learned about SpriteKit.  Specifically:
   * UNNotificationCategory
   * UNUserNotificationCenterDelegate
   * UNNotificationDefaultActionIdentifier
+  
+## Project 22 - Detect-a-Beacon
+  * CLBeaconRegion
   
