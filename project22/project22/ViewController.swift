@@ -41,5 +41,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
     }
+
+    private func update(distance: CLProximity) {
+        UIView.animate(withDuration: 0.8) { [unowned self] in
+            switch distance {
+            case .unknown:
+                self.view.backgroundColor = UIColor.gray
+                self.distanceReading.text = "UNKNOWN"
+            case .far:
+                self.view.backgroundColor = UIColor.blue
+                self.distanceReading.text = "FAR"
+            case .near:
+                self.view.backgroundColor = UIColor.orange
+                self.distanceReading.text = "NEAR"
+            case .immediate:
+                self.view.backgroundColor = UIColor.red
+                self.distanceReading.text = "RIGHT HERE"
+            }
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager,
+                         didRangeBeacons beacons: [CLBeacon],
+                         in region: CLBeaconRegion) {
+        if let beacon = beacons.first {
+            update(distance: beacon.proximity)
+        } else {
+            update(distance: .unknown)
+        }
+    }
 }
 

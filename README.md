@@ -199,4 +199,6 @@ Here we learned about SpriteKit.  Specifically:
   
 ## Project 22 - Detect-a-Beacon
   * CLBeaconRegion
-  
+  * CLLocationManager
+  * uuidgen
+  * CLProximity
