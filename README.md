@@ -25,6 +25,8 @@
   * [Project 18 - Debugging](#project-18---debugging)
   * [Project 19 - Capital Cities](#project-19---capital-cities)
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
+  * [Project 20 - Fireworks Night](#project-20---fireworks-night)
+  * [Project 21 - Local Notifications](#project-21---local-notifications)
 
 ## Project 1 - Storm Viewer
 
@@ -182,3 +184,15 @@ Here we learned about SpriteKit.  Specifically:
   * `colorBlendFactor`
 * `SKAction.follow()`
 * how to detect the device being shaken
+
+## Project 21 - Local Notifications
+  * Not the same thing as Push Notifications
+  * UNUserNotificationCenter
+  * DateComponents
+  * UNMutableNotificationContent
+  * UNNotificationSound
+  * UNNotificationAction
+  * UNNotificationCategory
+  * UNUserNotificationCenterDelegate
+  * UNNotificationDefaultActionIdentifier
+  
