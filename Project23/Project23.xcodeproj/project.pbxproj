@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8633DDA2098D1960056ED9F /* Starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8633DD82098D1960056ED9F /* Starfield.sks */; };
+		D8633DDB2098D1960056ED9F /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8633DD92098D1960056ED9F /* explosion.sks */; };
 		D8C67D2D2098C352000C6ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C67D2C2098C352000C6ABD /* AppDelegate.swift */; };
 		D8C67D2F2098C353000C6ABD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8C67D2E2098C353000C6ABD /* GameScene.sks */; };
 		D8C67D312098C353000C6ABD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8C67D302098C353000C6ABD /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8633DD82098D1960056ED9F /* Starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Starfield.sks; path = "../../../HackingWithSwift/project23-files/Content/Starfield.sks"; sourceTree = "<group>"; };
+		D8633DD92098D1960056ED9F /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = explosion.sks; path = "../../../HackingWithSwift/project23-files/Content/explosion.sks"; sourceTree = "<group>"; };
 		D8C67D292098C352000C6ABD /* Project23.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project23.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C67D2C2098C352000C6ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C67D2E2098C353000C6ABD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -41,6 +45,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8633DD02098D0630056ED9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8C67D2E2098C353000C6ABD /* GameScene.sks */,
+				D8C67D362098C353000C6ABD /* Main.storyboard */,
+				D8C67D342098C353000C6ABD /* GameViewController.swift */,
+				D8C67D2C2098C352000C6ABD /* AppDelegate.swift */,
+				D8C67D3B2098C358000C6ABD /* LaunchScreen.storyboard */,
+				D8C67D302098C353000C6ABD /* Actions.sks */,
+				D8C67D3E2098C358000C6ABD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8633DD52098D0E30056ED9F /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				D8633DD92098D1960056ED9F /* explosion.sks */,
+				D8633DD82098D1960056ED9F /* Starfield.sks */,
+			);
+			name = Content;
+			sourceTree = "<group>";
+		};
 		D8C67D202098C352000C6ABD = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +87,10 @@
 		D8C67D2B2098C352000C6ABD /* Project23 */ = {
 			isa = PBXGroup;
 			children = (
-				D8C67D2E2098C353000C6ABD /* GameScene.sks */,
-				D8C67D302098C353000C6ABD /* Actions.sks */,
 				D8C67D322098C353000C6ABD /* GameScene.swift */,
-				D8C67D342098C353000C6ABD /* GameViewController.swift */,
-				D8C67D362098C353000C6ABD /* Main.storyboard */,
 				D8C67D392098C358000C6ABD /* Assets.xcassets */,
-				D8C67D2C2098C352000C6ABD /* AppDelegate.swift */,
-				D8C67D3B2098C358000C6ABD /* LaunchScreen.storyboard */,
-				D8C67D3E2098C358000C6ABD /* Info.plist */,
+				D8633DD52098D0E30056ED9F /* Content */,
+				D8633DD02098D0630056ED9F /* Supporting Files */,
 			);
 			path = Project23;
 			sourceTree = "<group>";
@@ -131,9 +153,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8633DDA2098D1960056ED9F /* Starfield.sks in Resources */,
 				D8C67D382098C353000C6ABD /* Main.storyboard in Resources */,
 				D8C67D2F2098C353000C6ABD /* GameScene.sks in Resources */,
 				D8C67D3A2098C358000C6ABD /* Assets.xcassets in Resources */,
+				D8633DDB2098D1960056ED9F /* explosion.sks in Resources */,
 				D8C67D3D2098C358000C6ABD /* LaunchScreen.storyboard in Resources */,
 				D8C67D312098C353000C6ABD /* Actions.sks in Resources */,
 			);
