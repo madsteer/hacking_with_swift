@@ -28,8 +28,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         starfield = SKEmitterNode(fileNamed: "Starfield")!
         starfield.position = CGPoint(x: 1024, y: 384)
         starfield.advanceSimulationTime(10)
-        addChild(starfield)
         starfield.zPosition = -1
+        addChild(starfield)
+
         player = SKSpriteNode(imageNamed: "player")
         player.position = CGPoint(x: 100, y: 384)
         player.physicsBody = SKPhysicsBody(texture: player.texture!,
@@ -41,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: 16, y: 16)
         scoreLabel.horizontalAlignmentMode = .left
         addChild(scoreLabel)
+
         score = 0
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -50,8 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     @objc private func createEnemy() {
-        possibleEnemies =
-            GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
+        possibleEnemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
         let randomDistribution = GKRandomDistribution(lowestValue: 50, highestValue: 736)
         let sprite = SKSpriteNode(imageNamed: possibleEnemies[0])
         sprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
@@ -62,6 +63,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
+
+        // they're just too darn big to avoid
+        sprite.setScale(0.5)
     }
 
     override func update(_ currentTime: TimeInterval) {
@@ -93,5 +97,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(explosion)
         player.removeFromParent()
         isGameOver = true
+
+        gameTimer.invalidate()
+
+//        sleep(1)
+//        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (() -> ()) { self.scene?.view?.isPaused = true }, userInfo: nil, repeats: true)
+//        self.scene?.view?.isPaused = true
     }
 }
