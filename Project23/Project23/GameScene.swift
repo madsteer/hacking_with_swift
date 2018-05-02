@@ -29,6 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         starfield.position = CGPoint(x: 1024, y: 384)
         starfield.advanceSimulationTime(10)
         starfield.zPosition = -1
+        starfield.name = "Starfield"
         addChild(starfield)
 
         player = SKSpriteNode(imageNamed: "player")
@@ -72,12 +73,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for node in children {
             if node.position.x < -300 {
                 node.removeFromParent()
+                if !isGameOver {
+                    score += 1
+                }
             }
         }
 
-        if !isGameOver {
-            score += 1
-        }
+//        if !isGameOver {
+//            score += 1
+//        }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,9 +103,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         isGameOver = true
 
         gameTimer.invalidate()
+//        sleep(3)
+//        if let node = childNode(withName: "Starfield") {
+//            node.removeFromParent()
+//        }
 
 //        sleep(1)
-//        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (() -> ()) { self.scene?.view?.isPaused = true }, userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in self.scene?.view?.isPaused = true} )
+        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(restartGame), userInfo: nil, repeats: false)
 //        self.scene?.view?.isPaused = true
+    }
+
+    @objc private func restartGame() {
+        let gameOverLabel = SKLabelNode(fontNamed: "Chalkduster")
+        gameOverLabel.position = CGPoint(x: 400, y: 384)
+//        gameOverLabel.position = CGPoint(x: 25, y: 25)
+        gameOverLabel.horizontalAlignmentMode = .left
+        gameOverLabel.text = "Play again?"
+        addChild(gameOverLabel)
+
+        if let node = childNode(withName: "Starfield") {
+            node.removeFromParent()
+        }
+//        scene?.view?.isPaused = true
     }
 }
