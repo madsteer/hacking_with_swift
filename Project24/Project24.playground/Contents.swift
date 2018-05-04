@@ -28,4 +28,18 @@ extension Int {
 }
 
 let i: Int = 8
-print(i.squared())
+i.squared()
+
+extension BinaryInteger {
+    func squared() -> Self {
+        return self * self
+    }
+}
+
+let u: UInt = 8
+u.squared()
+let u64: UInt64 = 8
+u64.squared()
+let u8: UInt8 = 8
+u8.squared()
+
