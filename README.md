@@ -28,6 +28,8 @@
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
   * [Project 21 - Local Notifications](#project-21---local-notifications)
   * [Project 23 - Per-Pixel Collision Detection](#project-23---per-pixel-collision-detection)
+  * [Project 24 - Swift Extensions](#project-24---swift-extensions)
+  * [Project 25 - multipeer connectivity](#project-25---multipeer-connectivity)
 
 ## Project 1 - Storm Viewer
 
@@ -200,3 +202,8 @@ Here we learned about SpriteKit.  Specifically:
 ## Project 23 - Per-Pixel Collision Detection
   * more SKEmitterNode, SKSpriteNode, and SKLabelNode
   * per-pixel collision detection with `SKPhysicsBody`
+  
+## Project 24 - Swift Extensions
+  * just a playground this time.
+  
+## Project 25 - multipeer connectivity
