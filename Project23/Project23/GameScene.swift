@@ -25,6 +25,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMove(to view: SKView) {
         backgroundColor = UIColor.black
+
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
+
+        resetGame()
+    }
+
+    private func resetGame() {
         starfield = SKEmitterNode(fileNamed: "Starfield")!
         starfield.position = CGPoint(x: 1024, y: 384)
         starfield.advanceSimulationTime(10)
@@ -42,11 +50,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel.position = CGPoint(x: 16, y: 16)
         scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.name = "score"
         addChild(scoreLabel)
 
         score = 0
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        physicsWorld.contactDelegate = self
+        isGameOver = false
 
         gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy),
                                          userInfo: nil, repeats: true)
@@ -78,10 +86,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-
-//        if !isGameOver {
-//            score += 1
-//        }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -103,28 +107,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         isGameOver = true
 
         gameTimer.invalidate()
-//        sleep(3)
-//        if let node = childNode(withName: "Starfield") {
-//            node.removeFromParent()
-//        }
-
-//        sleep(1)
-//        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in self.scene?.view?.isPaused = true} )
-        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(restartGame), userInfo: nil, repeats: false)
-//        self.scene?.view?.isPaused = true
+        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(stopGame), userInfo: nil, repeats: false)
     }
 
-    @objc private func restartGame() {
+    @objc private func stopGame() {
         let gameOverLabel = SKLabelNode(fontNamed: "Chalkduster")
         gameOverLabel.position = CGPoint(x: 400, y: 384)
-//        gameOverLabel.position = CGPoint(x: 25, y: 25)
         gameOverLabel.horizontalAlignmentMode = .left
         gameOverLabel.text = "Play again?"
+        gameOverLabel.name = "gameOver"
         addChild(gameOverLabel)
 
         if let node = childNode(withName: "Starfield") {
             node.removeFromParent()
         }
-//        scene?.view?.isPaused = true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            for node in nodes(at: touch.location(in: self)) {
+                if node.name == "gameOver" {
+                    if let scoreNode = childNode(withName: "score") {
+                        scoreNode.removeFromParent()
+                    }
+                    node.removeFromParent()
+                    resetGame()
+                    return
+                }
+            }
+        }
     }
 }
