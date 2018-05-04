@@ -207,3 +207,8 @@ Here we learned about SpriteKit.  Specifically:
   * just a playground this time.
   
 ## Project 25 - multipeer connectivity
+  * `MCSession`
+  * `MCPeerID`
+  * `MCadvertiserAssistant`
+  * `MCBrowserViewController`
+  * `UIImagePNGRepresentation`
