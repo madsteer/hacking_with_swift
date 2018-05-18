@@ -94,6 +94,7 @@ class ViewController: UICollectionViewController,
         dismiss(animated: true)
         images.insert(image, at: 0)
         collectionView?.reloadData()
+        sendDataToPeers(using: image)
 
         if mcSession.connectedPeers.count > 0,
             let imageData = UIImagePNGRepresentation(image) {
@@ -111,6 +112,25 @@ class ViewController: UICollectionViewController,
                     present(ac, animated: true)
                 }
             }
+    }
+
+    private func sendDataToPeers(using image: UIImage) {
+        // 1 (page 610)
+        if mcSession.connectedPeers.count > 0 {
+            // 2
+            if let imageData = UIImagePNGRepresentation(image) {
+                // 3
+                do {
+                    try mcSession.send(imageData, toPeers: mcSession.connectedPeers, with: .reliable)
+                } catch {
+                    let ac = UIAlertController(title: "Send error",
+                                               message: error.localizedDescription, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK",
+                                               style: .default))
+                    present(ac, animated: true)
+                }
+            }
+        }
     }
 
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
