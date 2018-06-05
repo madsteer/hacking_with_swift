@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  Project11
+//  Project26
 //
-//  Created by Cory Steers on 3/9/18.
+//  Created by Cory Steers on 5/18/18.
 //  Copyright © 2018 Cory Steers. All rights reserved.
 //
 
@@ -26,10 +26,9 @@ class GameViewController: UIViewController {
             }
             
             view.ignoresSiblingOrder = true
-
-            // turn back on for debugging
-//            view.showsFPS = false
-//            view.showsNodeCount = false
+            
+//            view.showsFPS = true
+//            view.showsNodeCount = true
         }
     }
 
