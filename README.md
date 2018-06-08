@@ -200,3 +200,13 @@ Here we learned about SpriteKit.  Specifically:
 ## Project 23 - Per-Pixel Collision Detection
   * more SKEmitterNode, SKSpriteNode, and SKLabelNode
   * per-pixel collision detection with `SKPhysicsBody`
+  
+## Project 26 - Marble Maze
+  * `categoryBitMask`
+  * `collisionBitMask`
+  * `contactTestBitMask`
+  * `linearDamping`
+  * CMMotionManager
+  * `CoreMotion`
+  * Compiler Directives
+  

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Cory Steers. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 import GameplayKit
 
@@ -29,6 +30,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var player: SKSpriteNode!
+    private var motionManager: CMMotionManager!
 
     
     override func didMove(to view: SKView) {
@@ -42,6 +44,9 @@ class GameScene: SKScene {
 
         loadLevel()
         createPlayer()
+
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
     }
 
     private func createPlayer() {
@@ -98,15 +103,7 @@ class GameScene: SKScene {
         let node = loadNodeWithCirclePhysicsBody(at: position, of: CollisionTypes.vortex.rawValue,
                                                  named: "vortex")
 
-//        let node = SKSpriteNode(imageNamed: "vortex")
-//        node.name = "vortex"
-//        node.position = position
         node.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat.pi, duration: 1)))
-//        node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-//        node.physicsBody?.isDynamic = false
-//        node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
-//        node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
-//        node.physicsBody?.collisionBitMask = 0
         addChild(node)
     }
 
@@ -138,5 +135,47 @@ class GameScene: SKScene {
         node.physicsBody?.isDynamic = false
 
         return node
+    }
+
+    private var lastTouchPosition: CGPoint?
+
+    override func update(_ currentTime: TimeInterval) {
+        #if targetEnvironment(simulator)
+        if let currentTouch = lastTouchPosition {
+            let diff = CGPoint(x: currentTouch.x - player.position.x,
+                               y: currentTouch.y - player.position.y)
+            physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
+        }
+        #else
+        if let accelerometerData = motionManager.accelerometerData {
+            physicsWorld.gravity = CGVector(dx:
+                accelerometerData.acceleration.y * -50, dy:
+                accelerometerData.acceleration.x * 50)
+        }
+        #endif
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event:
+        UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            lastTouchPosition = location
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event:
+        UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            lastTouchPosition = location
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchPosition = nil
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchPosition = nil
     }
 }
