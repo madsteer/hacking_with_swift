@@ -196,11 +196,11 @@ Here we learned about SpriteKit.  Specifically:
   * UNNotificationCategory
   * UNUserNotificationCenterDelegate
   * UNNotificationDefaultActionIdentifier
-  
+
 ## Project 23 - Per-Pixel Collision Detection
   * more SKEmitterNode, SKSpriteNode, and SKLabelNode
   * per-pixel collision detection with `SKPhysicsBody`
-  
+
 ## Project 26 - Marble Maze
   * `categoryBitMask`
   * `collisionBitMask`
@@ -209,4 +209,8 @@ Here we learned about SpriteKit.  Specifically:
   * CMMotionManager
   * `CoreMotion`
   * Compiler Directives
-  
+    * #if
+    * #else
+    * #endif
+  * `SKPhysicsContactDelegate`
+    * `didBegin()`
