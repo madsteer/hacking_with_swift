@@ -83,6 +83,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score += 1
         } else if node.name == "finish" {
             isGameOver = true
+            player.physicsBody?.isDynamic = false
+            let remove = SKAction.removeFromParent()
+            let sequence = SKAction.sequence([ remove ])
+            player.run(sequence)
+
             // next level?
         }
     }
