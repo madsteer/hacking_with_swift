@@ -16,6 +16,7 @@
 		D877E8AA20AF4C380069399B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D877E8A920AF4C380069399B /* Assets.xcassets */; };
 		D877E8AD20AF4C380069399B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D877E8AB20AF4C380069399B /* LaunchScreen.storyboard */; };
 		D877E8B620AF4D500069399B /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = D877E8B520AF4D500069399B /* level1.txt */; };
+		D8E43AF420DD8E15004F4F4C /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8E43AF320DD8E15004F4F4C /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D877E8AC20AF4C380069399B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D877E8AE20AF4C380069399B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D877E8B520AF4D500069399B /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		D8E43AF320DD8E15004F4F4C /* level2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D877E8B520AF4D500069399B /* level1.txt */,
+				D8E43AF320DD8E15004F4F4C /* level2.txt */,
 				D877E89C20AF4C320069399B /* AppDelegate.swift */,
 				D877E8A420AF4C320069399B /* GameViewController.swift */,
 				D877E8A620AF4C320069399B /* Main.storyboard */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D877E8A820AF4C320069399B /* Main.storyboard in Resources */,
+				D8E43AF420DD8E15004F4F4C /* level2.txt in Resources */,
 				D877E89F20AF4C320069399B /* GameScene.sks in Resources */,
 				D877E8AA20AF4C380069399B /* Assets.xcassets in Resources */,
 				D877E8B620AF4D500069399B /* level1.txt in Resources */,
