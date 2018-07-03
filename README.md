@@ -31,6 +31,7 @@
   * [Project 23 - Per-Pixel Collision Detection](#project-23---per-pixel-collision-detection)
   * [Project 24 - Swift Extensions](#project-24---swift-extensions)
   * [Project 25 - multipeer connectivity](#project-25---multipeer-connectivity)
+  * [Project 26 - Marble Maze](#project-26---marble-maze)
 
 ## Project 1 - Storm Viewer
 
@@ -218,3 +219,17 @@ Here we learned about SpriteKit.  Specifically:
   * `MCadvertiserAssistant`
   * `MCBrowserViewController`
   * `UIImagePNGRepresentation`
+
+## Project 26 - Marble Maze
+  * `categoryBitMask`
+  * `collisionBitMask`
+  * `contactTestBitMask`
+  * `linearDamping`
+  * CMMotionManager
+  * `CoreMotion`
+  * Compiler Directives
+    * #if
+    * #else
+    * #endif
+  * `SKPhysicsContactDelegate`
+    * `didBegin()`
