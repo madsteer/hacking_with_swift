@@ -27,6 +27,7 @@
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
   * [Project 20 - Fireworks Night](#project-20---fireworks-night)
   * [Project 21 - Local Notifications](#project-21---local-notifications)
+  * [Project 22 - Detect-a-Beacon](#project-22---detect-a-beacon)
   * [Project 23 - Per-Pixel Collision Detection](#project-23---per-pixel-collision-detection)
   * [Project 24 - Swift Extensions](#project-24---swift-extensions)
   * [Project 25 - multipeer connectivity](#project-25---multipeer-connectivity)
@@ -179,7 +180,6 @@ Here we learned about SpriteKit.  Specifically:
 * `MKPinAnnotationView`
   * `canShowCallout()`
 
-
 ## Project 20 - Fireworks Night
 * `Timer` object
 * More `SKNode`
@@ -198,7 +198,13 @@ Here we learned about SpriteKit.  Specifically:
   * UNNotificationCategory
   * UNUserNotificationCenterDelegate
   * UNNotificationDefaultActionIdentifier
-  
+
+## Project 22 - Detect-a-Beacon
+  * CLBeaconRegion
+  * CLLocationManager
+  * uuidgen
+  * CLProximity
+
 ## Project 23 - Per-Pixel Collision Detection
   * more SKEmitterNode, SKSpriteNode, and SKLabelNode
   * per-pixel collision detection with `SKPhysicsBody`
